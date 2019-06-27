@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hexya>
+    <data>
+	<view id="view_inventory_form_inherit" model="StockInventory" >
+                <xpath expr="//field[@name='date']" position="after">
+                    <field name="accounting_date"/>
+                </xpath>
+            </view>
+	<view id="view_location_form_inherit" model="StockLocation" >
+                <xpath expr="//group[@name='localization']" position="after">
+                    <group string="Accounting Information" attrs="{'invisible':[('usage','not in',('inventory','production'))]}">
+                        <field name="valuation_in_account_id"/>
+                        <field name="valuation_out_account_id"/>
+                    </group>
+                </xpath>
+            </view>
+	<view id="view_picking_inherit_form2" model="StockPicking" >
+                <field name="move_lines" position="attributes">
+                    <attribute name="context">{'address_in_id': partner_id, 'form_view_ref':'stock.view_move_picking_form', 'tree_view_ref':'stock.view_move_picking_tree', 'default_picking_type_id': picking_type_id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}</attribute>
+                </field>
+            </view>
+    </data>
+</hexya>

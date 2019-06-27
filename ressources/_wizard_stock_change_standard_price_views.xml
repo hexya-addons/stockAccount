@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hexya>
+    <data>
+	<view id="view_change_standard_price" model="StockChangeStandardPrice" >
+              <form string="Change Standard Price">
+                  <separator string="Change Price"/>
+                  <group>
+                      <group>
+                          <field name="new_price" string="Cost"/>
+                      </group>
+                      <group>
+                          <field name="counterpart_account_id"/>
+                      </group>
+                  </group>
+                  <footer>
+                      <button name="change_price" string="_Apply" type="object" class="btn-primary"/>
+                      <button string="Cancel" class="btn-default" special="cancel" />
+                  </footer>
+              </form>
+            </view>
+        <action id="action_view_change_standard_price" type="ir.actions.act_window" name="Change Standard Price" model="StockChangeStandardPrice" view_mode="form" view_id="view_change_standard_price"></action>
+    </data>
+</hexya>

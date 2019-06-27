@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hexya>
+    <data>
+	<view id="view_wizard_valuation_history" model="WizardValuationHistory" >
+            <form string="Choose your date">
+                <p class="oe_gray" attrs="{'invisible': [('choose_date', '=', False)]}">
+                    Choose a date in the past to get the inventory at that date.
+                </p>
+                <p class="oe_gray" attrs="{'invisible': [('choose_date', '=', True)]}">
+                    Retrieve the curent stock valuation.
+                </p>
+                <group>
+                    <field name="choose_date"/>
+                    <field name="date" attrs="{'invisible': [('choose_date', '=', False)]}"/>
+                </group>
+                <footer>
+                    <button name="open_table" string="Retrieve the Inventory Value" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </view>
+        <action id="action_wizard_stock_valuation_history" type="ir.actions.act_window" name="Inventory at Date" model="WizardValuationHistory" view_mode="form" view_id="view_wizard_valuation_history"></action>
+    </data>
+</hexya>
